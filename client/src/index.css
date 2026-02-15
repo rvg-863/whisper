@@ -1,0 +1,59 @@
+:root {
+  /* Noir palette — deep blacks with a cold teal accent */
+  --bg-void: #08090c;
+  --bg-surface: #0e1117;
+  --bg-elevated: #161a23;
+  --bg-hover: #1c2130;
+  --border-subtle: #1e2332;
+  --border-focus: #2dd4bf40;
+  --text-primary: #e8eaed;
+  --text-secondary: #8b919e;
+  --text-muted: #545a68;
+  --accent: #2dd4bf;
+  --accent-dim: #2dd4bf20;
+  --accent-glow: #2dd4bf40;
+  --danger: #f87171;
+  --danger-dim: #f8717120;
+
+  /* Typography */
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Spacing */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-void);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: var(--accent-dim);
+  color: var(--accent);
+}
+
+input, button, textarea {
+  font-family: inherit;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
