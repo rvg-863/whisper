@@ -2,7 +2,11 @@ import { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthStore } from './stores/authStore';
 import AuthPage from './components/Auth/AuthPage';
+import ServerList from './components/ServerList/ServerList';
+import ChannelList from './components/ChannelList/ChannelList';
+import ChatView from './components/Chat/ChatView';
 import './index.css';
+import './components/Layout.css';
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const isAuthenticated = useAuthStore((s) => s.isAuthenticated);
@@ -11,36 +15,11 @@ function ProtectedRoute({ children }: { children: React.ReactNode }) {
 }
 
 function MainApp() {
-  const { username, logout } = useAuthStore();
-
   return (
-    <div style={{
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100vh',
-      flexDirection: 'column',
-      gap: '16px',
-    }}>
-      <h1 style={{ fontSize: '24px', fontWeight: 500 }}>Welcome, {username}</h1>
-      <p style={{ color: 'var(--text-secondary)', fontFamily: 'var(--font-mono)', fontSize: '13px' }}>
-        Whisper is initializing...
-      </p>
-      <button
-        onClick={logout}
-        style={{
-          marginTop: '8px',
-          padding: '8px 20px',
-          background: 'var(--bg-elevated)',
-          border: '1px solid var(--border-subtle)',
-          borderRadius: 'var(--radius-sm)',
-          color: 'var(--text-primary)',
-          cursor: 'pointer',
-          fontSize: '13px',
-        }}
-      >
-        Sign Out
-      </button>
+    <div className="app-layout">
+      <ServerList />
+      <ChannelList />
+      <ChatView />
     </div>
   );
 }

@@ -15,6 +15,10 @@ from server.models.base import Base
 
 # Import all models so they're registered with Base.metadata
 import server.models.user  # noqa: F401
+import server.models.server  # noqa: F401
+import server.models.channel  # noqa: F401
+import server.models.server_member  # noqa: F401
+import server.models.message  # noqa: F401
 
 config = context.config
 config.set_main_option("sqlalchemy.url", settings.database_url)
